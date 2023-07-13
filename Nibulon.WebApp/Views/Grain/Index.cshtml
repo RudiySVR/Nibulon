@@ -1,0 +1,237 @@
+﻿@model Nibulon.WebApp.ViewModels.GrainMoving
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="container">
+    <div>
+        @using (Html.BeginForm("Index", "Grain", FormMethod.Get))
+        {
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label for="start">Початкова дата</label>
+                        <input type="date" placeholder="Початкова дата" id="start" name="start"
+                               value=@ViewData["StartDate"]
+                               onchange="valueDate()"
+                               @*value="2023-03-29"*@
+                               required />
+                    </div>
+                    <div class="col-4">
+                        <label for="end">Кінцева дата</label>
+                        <input type="date" placeholder="Кінцева дата" id="end" name="end"
+                               value=@ViewData["EndDate"]
+                               onchange="valueDate()"
+                               required />
+                    </div>
+                    <div class="col-4">
+                        <input type="submit" value="Відібрати" id="check" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<h2>Таблиця №1</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Дата обліку</th>
+            <th>Рік врожаю</th>
+            <th>
+                Контрагент
+            </th>
+            <th>
+                ТМЦ Код
+            </th>
+            <th>Ціна</th>
+            <th>                Кількість                нетто            </th>
+            <th>Напрямок</th>
+            <th>вологість</th>
+            <th>сміття</th>
+            <th>зараженість</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Table_1)
+        {
+            <tr>
+                <td>
+                    @string.Format("{0:dd/MM/yyyy}", item.RecordDate)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.BranchId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CropYear)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.CounterpartyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CounterpartyName)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.ContactId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Process)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wetness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Garbage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Infection)
+                </td>
+
+            </tr>
+        }
+    <tbody>
+</table>
+<h2>Таблиця №2</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Дата обліку</th>
+            <th>Рік врожаю</th>
+            <th>
+                Контрагент
+            </th>
+            <th>
+                ТМЦ Код
+            </th>
+            <th>Ціна</th>
+            <th>                Кількість                нетто            </th>
+            <th>Напрямок</th>
+            <th>вологість</th>
+            <th>сміття</th>
+            <th>зараженість</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Table_2)
+        {
+            <tr>
+                <td>
+                    @string.Format("{0:dd/MM/yyyy}", item.RecordDate)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.BranchId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CropYear)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.CounterpartyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CounterpartyName)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.ContactId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Process)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wetness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Garbage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Infection)
+                </td>
+
+            </tr>
+        }
+    <tbody>
+</table>
+<h2>Таблиця №3</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Дата обліку</th>
+            <th>Рік врожаю</th>
+            <th>
+                Контрагент
+            </th>
+            <th>
+                ТМЦ Код
+            </th>
+            <th>Ціна</th>
+            <th>                Кількість                нетто            </th>
+            <th>Напрямок</th>
+            <th>вологість</th>
+            <th>сміття</th>
+            <th>зараженість</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Table_3)
+        {
+            <tr>
+                <td>
+                    @string.Format("{0:dd/MM/yyyy}", item.RecordDate)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.BranchId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CropYear)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.CounterpartyId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CounterpartyName)
+                </td>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.ContactId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Product)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Process)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Wetness)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Garbage)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Infection)
+                </td>
+
+            </tr>
+        }
+    <tbody>
+</table>
