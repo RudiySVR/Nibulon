@@ -21,15 +21,15 @@ namespace Nibulon.WebApp.Services
             List<Grain> data = JsonConvert.DeserializeObject<List<Grain>>(json);
             return data;
         }
-        public bool WriteJson(List<Grain> data)
+        public void WriteJson(List<Grain> data)
         {
-            const string filepath = @"Data\graintranzit.json";
+            const string filepath = @"Data\grain.json";
             // Сериализация объекта в строку
             string json = JsonConvert.SerializeObject(data);
 
             // Сохранение строки в файл
             File.WriteAllText(filepath, json);
-            return true;
+            return;
         }
     }
 }

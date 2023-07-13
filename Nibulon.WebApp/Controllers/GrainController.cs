@@ -106,13 +106,6 @@ namespace Nibulon.WebApp.Controllers
                         Garbage = item.GarbageSum / item.Amount
                     });
             }
-            //grainMoving.Table_3 = from p in table_3
-            //                      select new List<Grain>
-            //               {
-            //                   RecordDate = p.RecordDate,
-            //                          CounterpartyName = p.CounterpartyName
-            //               };
-
 
             return View(grainMoving);
         }
@@ -132,10 +125,15 @@ namespace Nibulon.WebApp.Controllers
         // POST: GrainController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Grain grain)
         {
             try
             {
+                List<Grain> Grain = new();
+                Grain = _grainManipulation.ReadJson();
+                grain.Wetness = (decimal)grain.Wetness;
+                Grain.Add(grain);
+                _grainManipulation.WriteJson(Grain);
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -9,5 +9,7 @@ namespace Nibulon.WebApp.Services
    public interface IGrainManipulation
     {
         public List<Grain> ReadJson();
+        public void WriteJson(List<Grain> data);
+
     }
 }
